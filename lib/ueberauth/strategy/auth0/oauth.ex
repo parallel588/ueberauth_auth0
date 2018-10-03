@@ -24,7 +24,7 @@ defmodule Ueberauth.Strategy.Auth0.OAuth do
     client_id = get_config_value(configs[:client_id])
     client_secret = get_config_value(configs[:client_secret])
 
-    opts = [
+    [
       strategy: __MODULE__,
       site: "https://#{domain}",
       authorize_url: "https://#{domain}/authorize",
@@ -33,7 +33,7 @@ defmodule Ueberauth.Strategy.Auth0.OAuth do
       client_id: client_id,
       client_secret: client_secret
     ]
-    Keyword.merge(configs, opts)
+    |> Keyword.merge(configs)
   end
 
   @doc """
